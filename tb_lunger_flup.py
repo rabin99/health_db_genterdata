@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
+import random
+import time
+
 import data_values
 import f
-import random
-import datetime
-import time
 
 # 住院
 dataCount = 1000  # 1k
@@ -69,53 +69,53 @@ def genDataBase(fileName, dataCount):
         ttt = f.createTime()
         create_time = ttt
         update_time = ttt
-        status = '0'
+        status = 0
 
         mLine = " %s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s\n" % (
-        id,
-        record_no,
-        name,
-        flup_date,
-        treat_month,
-        steer_person,
-        steer_person_desc,
-        flup_type,
-        flup_type_desc,
-        symptom_code,
-        symptom_desc,
-        daily_smoke,
-        daily_drink,
-        chemotherapy_plan,
-        drug_use,
-        drug_use_desc,
-        drug_dose,
-        drug_dose_desc,
-        leak_medicine_num,
-        ad_reaction,
-        ad_reaction_desc,
-        complication,
-        complication_desc,
-        referral_reason,
-        referral_org_name,
-        referral_department,
-        deal_advice,
-        two_flup_result,
-        stop_treat_time,
-        stop_treat_reason,
-        stop_treat_reason_desc,
-        flup_user_num,
-        doctor_id,
-        doctor_name,
-        gmt_next,
-        assess_doctor_id,
-        assess_doctor_name,
-        org_id,
-        org_name,
-        assess_org_id,
-        assess_org_name,
-        create_time,
-        update_time,
-        status)
+            id,
+            record_no,
+            name,
+            flup_date,
+            treat_month,
+            steer_person,
+            steer_person_desc,
+            flup_type,
+            flup_type_desc,
+            symptom_code,
+            symptom_desc,
+            daily_smoke,
+            daily_drink,
+            chemotherapy_plan,
+            drug_use,
+            drug_use_desc,
+            drug_dose,
+            drug_dose_desc,
+            leak_medicine_num,
+            ad_reaction,
+            ad_reaction_desc,
+            complication,
+            complication_desc,
+            referral_reason,
+            referral_org_name,
+            referral_department,
+            deal_advice,
+            two_flup_result,
+            stop_treat_time,
+            stop_treat_reason,
+            stop_treat_reason_desc,
+            flup_user_num,
+            doctor_id,
+            doctor_name,
+            gmt_next,
+            assess_doctor_id,
+            assess_doctor_name,
+            org_id,
+            org_name,
+            assess_org_id,
+            assess_org_name,
+            create_time,
+            update_time,
+            status)
         outp.write(mLine)
         i += 1
     outp.close()
@@ -124,7 +124,7 @@ def genDataBase(fileName, dataCount):
 if __name__ == "__main__":
     random.seed()
     start = time.time()
-    genDataBase('.\\tb_lunger_flup.txt', dataCount)
+    genDataBase('.\\data\\tb_lunger_flup.txt', dataCount)
     end = time.time()
     print('use time:%d' % (end - start))
     print('Ok')
