@@ -11,13 +11,13 @@ dataCount = 1000  # 1k
 
 
 def genDataBase(fileName, dataCount):
-    outp = open(fileName, 'w')
+    outp = open(fileName, 'w',encoding='utf-8')
     i = 0
     while i < dataCount:
         people_item = f.genRandomTypes(data_values.people_list)
         doctor_name = f.genRandomTypes(data_values.name_list)
 
-        id = f.genId()
+        id = f.genPK(19)
         record_no = people_item['record_id']
         name = people_item['name']
 
@@ -25,9 +25,9 @@ def genDataBase(fileName, dataCount):
         guardian_name = f.genRandomString(10)
         relation_name = f.genRandomString(10)
         guardian_addr = f.genRandomString(10)
-        guardian_tel = f.genRandomString(10)
+        guardian_tel = f.genPhoneNum()
         contact_name = f.genRandomString(10)
-        contact_tel = f.genRandomString(10)
+        contact_tel = f.genPhoneNum()
         household_type = f.genRandomString(1)
         household_desc = f.genRandomString(10)
         employment_code = f.genRandomString(1)

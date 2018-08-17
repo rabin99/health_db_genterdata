@@ -5,7 +5,7 @@ import datetime
 import time
 import uuid
 import data_values
-
+import hashlib
 # 住院
 dataCount = 1000  # 1k.
 codeRange = range(ord('a'), ord('z'))
@@ -13,6 +13,15 @@ alphaRange = [chr(x) for x in codeRange]
 alphaMax = len(alphaRange)
 daysMax = 4000
 theDay = datetime.date(1990, 1, 1)
+
+
+def genPK(randomlength=19):
+    random_str = ''
+    base_str = 'abcdefg0123456789'
+    length = len(base_str) - 1
+    for i in range(randomlength):
+        random_str += base_str[random.randint(0, length)]
+    return random_str
 
 
 def genRandomString(nameLength):
@@ -95,3 +104,17 @@ if __name__ == '__main__':
     print(data_values.steer_person_desc[genInt(len(data_values.steer_person_desc))])
 
     print(genBeforeDate())
+
+
+    print(genPK())
+
+    for count in range(10):
+        print(genInt(4,1))
+
+
+# load data local infile 'D:\\PycharmProjects\\health_db_genterdata\\data\\tb_lunger_flup.txt' into TABLE tb_lunger_flup character set utf8 FIELDS TERMINATED by ',' ;
+# load data local infile 'D:\\PycharmProjects\\health_db_genterdata\\data\\tbl_alloeosis_followup.txt' into TABLE tbl_alloeosis_followup character set utf8 FIELDS TERMINATED by ',' ;
+# load data local infile 'D:\\PycharmProjects\\health_db_genterdata\\data\\tbl_alloeosis_record.txt' into TABLE tbl_alloeosis_record character set utf8 FIELDS TERMINATED by ',' ;
+# load data local infile 'D:\\PycharmProjects\\health_db_genterdata\\data\\tbl_diabetes_interview.txt' into TABLE tbl_diabetes_interview character set utf8 FIELDS TERMINATED by ',' ;
+# load data local infile 'D:\\PycharmProjects\\health_db_genterdata\\data\\tbl_hypertension_interview.txt' into TABLE tbl_hypertension_interview character set utf8 FIELDS TERMINATED by ',' ;
+# load data local infile 'D:\\PycharmProjects\\health_db_genterdata\\data\\tbl_lunger_first_flup.txt' into TABLE tbl_lunger_first_flup character set utf8 FIELDS TERMINATED by ',' ;

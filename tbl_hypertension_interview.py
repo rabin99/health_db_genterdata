@@ -9,13 +9,13 @@ import time
 # 住院
 dataCount = 1000  #1k
 def genDataBase(fileName, dataCount):
-    outp = open(fileName, 'w')
+    outp = open(fileName, 'w',encoding='utf-8')
     i = 0
     while i < dataCount:
         people_item = f.genRandomTypes(data_values.people_list)
         doctor_name = f.genRandomTypes(data_values.name_list)
 
-        id = f.genId()
+        id = f.genPK(19)
         record_no = people_item['record_id']
         name = people_item['name']
 
@@ -64,7 +64,7 @@ def genDataBase(fileName, dataCount):
         other_drug_name =f.genRandomString(10)
         other_drug_way =f.genRandomString(10)
         other_drug_dose =f.genRandomString(10)
-        tt_code =f.genInt(2,1)
+        tt_code =f.genInt(3,1)
         tt_reason =f.genRandomString(10)
         tt_org_name =data_values.hospital_list[f.genInt(len(data_values.hospital_list))][1]
         tt_department_name =data_values.hospital_list[f.genInt(len(data_values.hospital_list))][1]
